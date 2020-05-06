@@ -20,6 +20,6 @@ npm run build
 npm run lint
 ```
 
-# 首页制作
-
+### 首页制作
+1. 优化一下轮播组件
 
