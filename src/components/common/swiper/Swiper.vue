@@ -1,6 +1,6 @@
 <template>
   <div id="hy-swiper">
-    <div class="swiper" @touchstart="touchStart" @touchmove="touchMove" @touchend="touchEnd">
+    <div class="swiper" @touchstart="touchStart" @touchmove="touchMove" @touchend="touchEnd" ref="sSwiper">
       <slot></slot>
     </div>
     <slot name="indicator"></slot>
@@ -36,7 +36,7 @@ export default {
     showIndicator: {
       type: Boolean,
       default: true
-    }
+    },
 
   },
   data: function() {
@@ -45,17 +45,32 @@ export default {
       totalWidth: 0, // swiper的宽度
       swiperStyle: {}, // swiper样式
       currentIndex: 1, // 当前的index
-      scrolling: false // 是否正在滚动
+      scrolling: false, // 是否正在滚动
     };
   },
   mounted: function() {
-    this.startCarousel()
+    this.$nextTick(() => {
+      this.playTimerTwo = window.setInterval(() => {
+          console.log("测试")
+        if(this.$refs.sSwiper.offsetHeight>100) {
+          this.startCarousel()
+          window.clearInterval(this.playTimerTwo)
+        }
+      },1000)
+      
+    })
+  },
+  watch: {
+    swiperHeight(newValue) {
+      console.log(newValue)
+      this.startCarousel()
+    }
   },
   methods: {
     startCarousel() {
       // 1.操作DOM, 在前后添加Slide
       setTimeout(() => {
-        this.handleDom();
+        this.handleDom()
         // 2.开启定时器
         this.startTimer();
       }, 500);
@@ -64,6 +79,7 @@ export default {
      * 定时器操作
      */
     startTimer: function() {
+      if(this.playTimer)  clearInterval(this.playTimer)
       this.playTimer = window.setInterval(() => {
         this.currentIndex++;
         this.scrollContent(-this.currentIndex * this.totalWidth);

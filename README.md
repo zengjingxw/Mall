@@ -8,7 +8,7 @@ npm install
 ### Compiles and hot-reloads for development
 ```
 npm run serve
-```
+```1367159064@qq
 
 ### Compiles and minifies for production
 ```
