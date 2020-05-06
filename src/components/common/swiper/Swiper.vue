@@ -37,6 +37,7 @@ export default {
       type: Boolean,
       default: true
     }
+
   },
   data: function() {
     return {
@@ -48,15 +49,17 @@ export default {
     };
   },
   mounted: function() {
-    // 1.操作DOM, 在前后添加Slide
-    setTimeout(() => {
-      this.handleDom();
-
-      // 2.开启定时器
-      this.startTimer();
-    }, 800);
+    this.startCarousel()
   },
   methods: {
+    startCarousel() {
+      // 1.操作DOM, 在前后添加Slide
+      setTimeout(() => {
+        this.handleDom();
+        // 2.开启定时器
+        this.startTimer();
+      }, 500);
+    },
     /**
      * 定时器操作
      */

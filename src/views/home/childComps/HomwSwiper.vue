@@ -1,5 +1,5 @@
 <template>
-  <swiper>
+  <swiper ref="hsSwiper">
     <swiper-item v-for="(item, index) in banners" :key="index" >
       <a :href="item.link">
         <img :src="item.image" alt  @load="swiperImageLoad"/>
@@ -21,15 +21,22 @@ export default {
   },
   data() {
     return {
-      isLoad: false
+      isLoad: false, 
+      count: 0
     };
   },
   components: { Swiper, SwiperItem },
+
   methods: {
     swiperImageLoad() {
+      this.count ++
       if(!this.isLoad) {
         this.isLoad = true
         this.$emit('swiperImageLoad')
+      }
+      if(this.count == this.banners.length) {
+
+        this.$refs.hsSwiper.startCarousel()
       }
     }
   },
