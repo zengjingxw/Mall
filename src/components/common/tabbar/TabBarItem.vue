@@ -18,7 +18,7 @@ export default {
   props: {
     link: {
       type: String,
-      default: '/'
+      default: ''
     },
     activeColor: {
       type:String,
@@ -42,13 +42,12 @@ export default {
   methods: {
     isActiveClick() {
       if(this.$route.path.indexOf(this.link) !==-1) {
-        console.log(++this.count)
         return
       }
       this.$router.replace(this.link)
     }
   },
- /*  beforeRouteLeave (to, from, next) {
+  /*  beforeRouteLeave (to, from, next) {
     
   }, */
   activated() {

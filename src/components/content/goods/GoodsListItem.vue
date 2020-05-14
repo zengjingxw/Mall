@@ -1,6 +1,6 @@
 <template>
-  <div class="goods-list-item">
-    <img :src="itemData.show.img" alt="" @load="loaded">
+  <div class="goods-list-item" @click="itemClick">
+    <img v-lazy="getImage" alt="" @load="loaded">
     <div class="item">
       <p>{{itemData.title}}</p>
       <div class="item-arg">
@@ -31,7 +31,15 @@
     },
     methods: {
       loaded() {
-        // this.$bus.$emit("loaded")
+        this.$bus.$emit("loaded")
+      },
+      itemClick() {
+        this.$router.push('/detail/'+this.itemData.iid)
+      }
+    },
+    computed: {
+      getImage() {
+        return ( this.itemData.show &&  this.itemData.show.img ) || this.itemData.image || this.itemData.img
       }
     },
     created() {

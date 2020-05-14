@@ -1,11 +1,9 @@
 <template>
   <div id="app">
-    <div class="wrap">
-      <keep-alive>
-        <router-view />
-      </keep-alive>
-      <main-tab-bar></main-tab-bar>
-    </div>
+    <keep-alive exclude="Deatail">
+      <router-view />
+    </keep-alive>
+    <main-tab-bar class="main-bottom-tab"></main-tab-bar>
   </div>
 </template>
 
@@ -21,6 +19,7 @@
 
 <style>
   @import "./assets/css/base.css";
+  @import './assets/fonts/supermall/style.css'
 </style>
 
 <style lang="less" scoped>
@@ -28,6 +27,5 @@
     height: 100%;
     width: 100%;
     overflow: auto;
-
   }
 </style>

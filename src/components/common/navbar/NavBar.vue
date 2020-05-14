@@ -1,7 +1,7 @@
 <template>
   <div class = 'nav-bar'>
-      <slot name="left"></slot>
     <div class="left">
+      <slot name="left"></slot>
     </div>
     <div class="center">
       <slot name="center"></slot>
@@ -46,7 +46,7 @@
       flex: 1;
       display: flex;
       flex-direction: row;
-      justify-content: center;
+      justify-content: space-around;
       align-items: center;
     }
 

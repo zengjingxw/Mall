@@ -1,0 +1,135 @@
+@font-face {
+  font-family: 'smileforget';
+  src:  url('fonts/smileforget.eot?w520m6');
+  src:  url('fonts/smileforget.eot?w520m6#iefix') format('embedded-opentype'),
+    url('fonts/smileforget.ttf?w520m6') format('truetype'),
+    url('fonts/smileforget.woff?w520m6') format('woff'),
+    url('fonts/smileforget.svg?w520m6#smileforget') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'smileforget' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-bianjibijishishouxie:before {
+  content: "\e900";
+  color: #dbdbdb;
+}
+.icon-geren:before {
+  content: "\e901";
+  color: #dbdbdb;
+}
+.icon-guanjun .path1:before {
+  content: "\e902";
+  color: rgb(0, 0, 0);
+}
+.icon-guanjun .path2:before {
+  content: "\e903";
+  margin-left: -1em;
+  color: rgb(0, 0, 0);
+}
+.icon-guanjun .path3:before {
+  content: "\e904";
+  margin-left: -1em;
+  color: rgb(255, 109, 0);
+}
+.icon-jifenshangcheng:before {
+  content: "\e905";
+  color: #dbdbdb;
+}
+.icon-kecheng:before {
+  content: "\e906";
+  color: #dbdbdb;
+}
+.icon-kecheng_1:before {
+  content: "\e907";
+  color: #dbdbdb;
+}
+.icon-new:before {
+  content: "\e908";
+  color: #dbdbdb;
+}
+.icon-shouji:before {
+  content: "\e909";
+  color: #dbdbdb;
+}
+.icon-shouji_1 .path1:before {
+  content: "\e90a";
+  color: rgb(56, 66, 68);
+}
+.icon-shouji_1 .path2:before {
+  content: "\e90b";
+  margin-left: -1em;
+  color: rgb(105, 111, 111);
+}
+.icon-shouji_1 .path3:before {
+  content: "\e90c";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.icon-shouji_1 .path4:before {
+  content: "\e90d";
+  margin-left: -1em;
+  color: rgb(33, 164, 212);
+}
+.icon-shouji_2:before {
+  content: "\e90e";
+  color: #dbdbdb;
+}
+.icon-shoujianxiang:before {
+  content: "\e90f";
+  color: #dbdbdb;
+}
+.icon-sousuo:before {
+  content: "\e910";
+  color: #dbdbdb;
+}
+.icon-tongxunlu:before {
+  content: "\e911";
+  color: #dbdbdb;
+}
+.icon-V:before {
+  content: "\e912";
+  color: #dbdbdb;
+}
+.icon-webicon205:before {
+  content: "\e913";
+  color: #dbdbdb;
+}
+.icon-wode:before {
+  content: "\e914";
+  color: #dbdbdb;
+}
+.icon-xiaoxi:before {
+  content: "\e915";
+  color: #dbdbdb;
+}
+.icon-xiaozu:before {
+  content: "\e916";
+  color: #dbdbdb;
+}
+.icon-xiazai:before {
+  content: "\e917";
+  color: #dbdbdb;
+}
+.icon-yunpan:before {
+  content: "\e918";
+  color: #dbdbdb;
+}
+.icon-uniE919:before {
+  content: "\e919";
+}

@@ -50,14 +50,7 @@ export default {
   },
   mounted: function() {
     this.$nextTick(() => {
-      this.playTimerTwo = window.setInterval(() => {
-          console.log("测试")
-        if(this.$refs.sSwiper.offsetHeight>100) {
-          this.startCarousel()
-          window.clearInterval(this.playTimerTwo)
-        }
-      },1000)
-      
+      this.startSetInterVaL()
     })
   },
   watch: {
@@ -67,6 +60,14 @@ export default {
     }
   },
   methods: {
+    startSetInterVaL() {
+      this.playTimerTwo = window.setInterval(() => {
+        if(this.$refs.sSwiper.offsetHeight > 100) {
+          this.startCarousel()
+          window.clearInterval(this.playTimerTwo)
+        }
+      },1000)
+    },
     startCarousel() {
       // 1.操作DOM, 在前后添加Slide
       setTimeout(() => {

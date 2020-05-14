@@ -12,7 +12,7 @@
       <goods-list :goods="showGoods"></goods-list>
     </scroll>
     
-    <back-top @click.native="backClick" v-show="isShowBackTop"/>
+    <back-top @backClick="backClick" v-show="isShowBackTop"/>
   </div>
 </template>
 
@@ -26,11 +26,13 @@
 
   import TabContro from "components/content/tabcontro/TabContro"
   import GoodsList from "components/content/goods/GoodsList"
-  import BackTop from "components/content/backTop/BackTop"
 
   import { getHomeMultidata, getHomeGoods } from "network/home"
 
+  import { imgLoad } from 'common/mixin'
+
 export default {
+  mixins: [ imgLoad ],
   data() {
     return {
       banners: [],
@@ -51,24 +53,36 @@ export default {
         }
       },
       currentType: "pop",
-      isShowBackTop:false,
       isPullLodaMore:false,
       tabOffsetTop: 0,
-      isShowTabControl: false
+      isShowTabControl: false,
+      saveY: 0
     };
   },
   components: {
     NavBar,
     TabContro,
     HomeSwiper,
-    BackTop,
     FeatureView,
     Scroll,
     GoodsList,
     HomeRecommendView
   },
+  activated() {
+    this.playTimer = window.setInterval(() => {
+      if(this.$refs.scroll != undefined || this.$refs.scroll !=null) {
+        this.$refs.scroll.scrollTo(0, this.saveY, 0)
+        this.$refs.scroll.refresh()
+        window.clearInterval(this.playTimer)
+      }
+    },10)
+  },
+  deactivated() {
+    this.saveY = this.$refs.scroll.getScrollY() 
+    this.$bus.$off('loaded', this.imagesing)
+  },
   methods: {
-    /**
+    /**fd
      * 网络请求
      */
     getHomeData() {
@@ -96,6 +110,11 @@ export default {
     /**
      * 事件监听
      */
+    contentScroll(position) {
+      this.commonContentScroll(position)
+      this.isShowTabControl = (-position.y) > this.tabOffsetTop
+    },
+    //点变色 
     tabClick(index) {
       switch (index) {
         case 0:
@@ -110,27 +129,23 @@ export default {
       this.$refs.tabcontrolTwo.currentIndex = index
       this.$refs.tabcontrolOne.currentIndex = index
     },
-    backClick() {
-      this.$refs.scroll.scrollTo(0,0,1000)
-    },
-    contentScroll(position) {
-      this.isShowBackTop = (-position.y) > 400
 
-      this.isShowTabControl = (-position.y) > this.tabOffsetTop
-    },
+    //下拉加载更多
     pullLoadMore() {
       if(this.isPullLodaMore) {
         this.isPullLodaMore = false
         this.getHomeGoodsS(this.currentType)
       }
     },
+    //获取轮播图信息
     swiperImageLoad() {
       this.tabOffsetTop = this.$refs.tabcontrolOne.$el.offsetTop
     }
   },
   computed: {
+    //显示商品信息
     showGoods() {
-      return this.goods[this.currentType].list
+      return this.goods[ this.currentType ].list
     },
   },
   created() {
@@ -140,11 +155,9 @@ export default {
     this.getHomeGoodsS("sell");
   },
   mounted() {
-    /*const refresh = this.debounce(this.$refs.scroll.refresh, 500)
-    this.$bus.$on('loaded', () => {
-      refresh()
-    }) */
-  }
+
+  },
+
 };
 </script>
 
@@ -175,6 +188,7 @@ export default {
     position: absolute;
     z-index: 9;
     top:44px;
+    // color:#ff0000
   }
 }
 </style>
