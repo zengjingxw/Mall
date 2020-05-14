@@ -125,6 +125,7 @@
   .categroy {
     height: 100%;
     border: 0px solid red;
+    overflow: hidden;
     .categroy-nav-bar {
       position: relative;
       z-index: 10;
