@@ -24,5 +24,4 @@ npm run lint
 
 # 二、一通乱搞终于差多完成了(虽然问题还是很多)
 
-# 三、最后感谢gihub上的 
-**==coderwhy==** 
+# 三、最后感谢gihub上的  => coderwhy 
