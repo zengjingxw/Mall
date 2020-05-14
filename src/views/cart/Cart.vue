@@ -46,7 +46,7 @@
 
 <style lang="less" scoped>
   .cart {
-    height: 100vh;
+    height: 100%;
     overflow: hidden;
     position: relative;
     .cart-nav-bar {
